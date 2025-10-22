@@ -58,13 +58,13 @@ const TestimonialsSection = () => {
   ]
 
   return (
-    <section ref={ref} className="section-padding bg-dark-secondary">
+    <section ref={ref} className="py-8 md:py-12 bg-dark-primary">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="text-white">What Our</span> <span className="gradient-text">Students</span> <span className="text-white">Say</span>
@@ -104,15 +104,15 @@ const TestimonialsSection = () => {
                 slidesPerView: 3,
               },
             }}
-            className="testimonials-swiper pb-12"
+            className="testimonials-swiper pb-10"
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id} className="h-auto">
-                <div className="flex flex-col h-full min-h-[220px] bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:border-neon-blue/30 transition-all duration-300">
+                <div className="flex flex-col h-full min-h-[180px] bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 hover:border-neon-blue/30 transition-all duration-300">
                   {/* Header with Profile */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-semibold text-base">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-semibold text-sm">
                         {testimonial.name.charAt(0)}
                       </span>
                     </div>
@@ -141,9 +141,9 @@ const TestimonialsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 text-center"
+          className="mt-10 text-center"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { metric: '4.9/5', label: 'Average Rating' },
               { metric: '50K+', label: 'Reviews' },

@@ -75,13 +75,13 @@ const StatsSection = () => {
 
 
   return (
-    <section ref={ref} className="section-padding bg-dark-secondary">
+    <section ref={ref} className="py-12 md:py-16 bg-dark-primary">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="text-white">Trusted by</span> <span className="gradient-text">Thousands</span> <span className="text-white">Worldwide</span>
@@ -97,7 +97,6 @@ const StatsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16"
         >
           <Swiper
             modules={[Autoplay]}
@@ -166,31 +165,7 @@ const StatsSection = () => {
           </Swiper>
         </motion.div>
 
-        {/* Achievement Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 text-center"
-        >
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {[
-              'ISO 27001 Certified',
-              'GDPR Compliant',
-              'SOC 2 Type II',
-              'Award Winner 2024',
-            ].map((badge, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-2 bg-dark-card/50 backdrop-blur-sm
-                           border border-dark-border rounded-full px-4 py-2"
-              >
-                <div className="w-2 h-2 bg-accent-blue rounded-full animate-pulse" />
-                <span className="text-text-secondary text-sm">{badge}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+
       </div>
     </section>
   )

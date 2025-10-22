@@ -64,41 +64,76 @@ const PartnersSection = () => {
       fallback: 'S'
     },
   ]
-  
-  
 
-  const achievements = [
+  const universities = [
     {
-      title: 'Industry Recognition',
-      items: [
-        'Best LMS Platform 2024',
-        'Innovation in EdTech Award',
-        'Top 10 Learning Platforms',
-        'Excellence in AI Education',
-      ],
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Harvard_University_logo.svg',
+      fallback: 'HU'
     },
     {
-      title: 'Certifications',
-      items: [
-        'ISO 27001 Certified',
-        'GDPR Compliant',
-        'SOC 2 Type II',
-        'WCAG 2.1 AA Accessible',
-      ],
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Stanford_University_Logo.svg',
+      fallback: 'SU'
+    },
+    {
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg',
+      fallback: 'MIT'
+    },
+    {
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Oxford-University-Circlet.svg/240px-Oxford-University-Circlet.svg.png',
+      fallback: 'OX'
+    },
+    {
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/University_of_Cambridge_coat_of_arms.svg/240px-University_of_Cambridge_coat_of_arms.svg.png',
+      fallback: 'CAM'
+    },
+    {
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Yale_University_logo.svg',
+      fallback: 'YU'
+    },
+    {
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Princeton_seal.svg/240px-Princeton_seal.svg.png',
+      fallback: 'PU'
+    },
+    {
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Columbia_University_logo.svg',
+      fallback: 'CU'
+    },
+    {
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Seal_of_University_of_California%2C_Berkeley.svg/240px-Seal_of_University_of_California%2C_Berkeley.svg.png',
+      fallback: 'UCB'
+    },
+    {
+      name: '',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Caltech_logo.svg',
+      fallback: 'CIT'
     },
   ]
 
+
+
   return (
-    <section ref={ref} className="section-padding bg-dark-primary">
+    <section ref={ref} className="py-8 md:py-12 bg-dark-primary">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-white">Trusted by</span> <span className="gradient-text">Industry Leaders</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <span className="text-white">Trusted by </span>
+            <span className="gradient-text">Industry Leaders and Universities</span>
+            <br />
+            <span className="text-white">across the world</span>
           </h2>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto">
             Join the ranks of top companies and institutions that trust EDUNUTSHELL
@@ -111,7 +146,7 @@ const PartnersSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16"
+          className="mb-8"
         >
           <Swiper
             modules={[Autoplay]}
@@ -138,13 +173,13 @@ const PartnersSection = () => {
           >
             {partners.map((partner, index) => (
               <SwiperSlide key={index}>
-                <div className="flex flex-col items-center justify-center h-28 bg-dark-card/50 
+                <div className="flex flex-col items-center justify-center h-24 bg-dark-card/50 
                               border border-dark-border rounded-xl hover:border-accent-blue/30
-                              transition-all duration-300 group p-4 space-y-2">
+                              transition-all duration-300 group p-3 space-y-2">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="max-h-10 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                    className="max-h-8 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                     onError={(e) => {
                       // Fallback to text logo if image fails to load
                       const target = e.target as HTMLImageElement;
@@ -164,62 +199,62 @@ const PartnersSection = () => {
           </Swiper>
         </motion.div>
 
-        {/* Achievements Grid */}
+        {/* Universities Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
-          {achievements.map((category, index) => (
-            <div key={index} className="card-dark">
-              <h3 className="text-xl font-semibold text-text-primary mb-6 flex items-center">
-                <div className="w-2 h-2 bg-accent-blue rounded-full mr-3" />
-                {category.title}
-              </h3>
-              <ul className="space-y-3">
-                {category.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-center text-text-secondary">
-                    <div className="w-1.5 h-1.5 bg-gradient-primary rounded-full mr-3" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Global Reach */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center bg-gradient-card rounded-3xl p-8 md:p-12 border border-dark-border"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-            Global Impact & Reach
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: '85+', label: 'Countries' },
-              { number: '500+', label: 'Universities' },
-              { number: '1000+', label: 'Companies' },
-              { number: '50+', label: 'Languages' },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold gradient-text mb-2">
-                  {stat.number}
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={30}
+            slidesPerView={2}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+              reverseDirection: true,
+            }}
+            loop={true}
+            breakpoints={{
+              640: {
+                slidesPerView: 3,
+              },
+              768: {
+                slidesPerView: 4,
+              },
+              1024: {
+                slidesPerView: 5,
+              },
+            }}
+            className="partners-swiper"
+          >
+            {universities.map((university, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col items-center justify-center h-24 bg-dark-card/50 
+                              border border-dark-border rounded-xl hover:border-accent-blue/30
+                              transition-all duration-300 group p-3 space-y-2">
+                  <img
+                    src={university.logo}
+                    alt={university.name}
+                    className="max-h-12 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                    onError={(e) => {
+                      // Fallback to text logo if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallbackDiv = document.createElement('div');
+                      fallbackDiv.className = 'w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300';
+                      fallbackDiv.innerHTML = `<span class="text-white font-bold text-sm">${university.fallback}</span>`;
+                      target.parentNode?.appendChild(fallbackDiv);
+                    }}
+                  />
+                  <span className="text-text-secondary text-sm font-medium tracking-wide font-mono group-hover:text-accent-blue transition-colors duration-300">
+                    {university.name}
+                  </span>
                 </div>
-                <div className="text-text-secondary">
-                  {stat.label}
-                </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
-          <p className="text-text-secondary mt-8 max-w-2xl mx-auto">
-            From startups to Fortune 500 companies, educational institutions to government
-            agencies, EDUNUTSHELL is the trusted choice for professional development worldwide.
-          </p>
+          </Swiper>
         </motion.div>
       </div>
     </section>

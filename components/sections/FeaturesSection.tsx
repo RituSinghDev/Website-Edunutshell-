@@ -49,20 +49,20 @@ const FeaturesSection = () => {
   ]
 
   return (
-    <section ref={ref} className="section-padding bg-[#0a0a0a]">
+    <section ref={ref} className="py-8 md:py-12 bg-dark-secondary">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Powerful <span className="gradient-text">Features</span> for Modern Learning
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -72,27 +72,27 @@ const FeaturesSection = () => {
               className="flex flex-col items-center text-center group"
             >
               {/* Icon Container - Flat Style */}
-              <div className="relative mb-6">
+              <div className="relative mb-4">
                 {/* Outer glow */}
                 <div className="absolute inset-0 bg-slate-700/20 rounded-full blur-2xl scale-110" />
 
                 {/* Main Icon Circle */}
-                <div className="relative w-24 h-24 rounded-full bg-gradient-to-b from-slate-600 to-slate-700 
+                <div className="relative w-20 h-20 rounded-full bg-gradient-to-b from-slate-600 to-slate-700 
                               flex items-center justify-center shadow-2xl
                               transform transition-all duration-300 
                               group-hover:scale-105 group-hover:shadow-slate-600/50">
                   {/* Top highlight */}
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-6 
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-5 
                                 bg-gradient-to-b from-slate-400/40 to-transparent 
                                 rounded-full blur-md" />
 
                   {/* Icon */}
-                  <feature.icon className="w-10 h-10 text-slate-200 relative z-10" strokeWidth={1.5} />
+                  <feature.icon className="w-9 h-9 text-slate-200 relative z-10" strokeWidth={1.5} />
                 </div>
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-semibold text-white mb-3">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 {feature.title}
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs">

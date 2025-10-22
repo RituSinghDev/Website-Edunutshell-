@@ -31,7 +31,7 @@ const StudentInquiryForm = () => {
   }
 
   return (
-    <section className="section-padding bg-dark-secondary">
+    <section className="py-8 md:py-12 bg-dark-secondary">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ const StudentInquiryForm = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-white">Start Your</span> <span className="gradient-text">Learning Journey</span>
             </h2>
@@ -50,8 +50,8 @@ const StudentInquiryForm = () => {
           </div>
 
           <div className="card-dark">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid md:grid-cols-2 gap-5">
                 {/* Name */}
                 <div>
                   <label className="block text-text-primary font-medium mb-2">
@@ -157,7 +157,7 @@ const StudentInquiryForm = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="grid md:grid-cols-2 gap-4 pt-4">
+              <div className="grid md:grid-cols-2 gap-4 pt-2">
                 <button
                   type="button"
                   onClick={() => router.push('/login')}
@@ -176,7 +176,7 @@ const StudentInquiryForm = () => {
               </div>
 
               {/* Campus Ambassador Link */}
-              <div className="text-center pt-4 border-t border-dark-border">
+              <div className="text-center pt-3 border-t border-dark-border">
                 <p className="text-text-secondary mb-3">
                   Want to become a Campus Ambassador?
                 </p>
