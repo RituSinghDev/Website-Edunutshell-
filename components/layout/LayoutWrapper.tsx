@@ -29,7 +29,7 @@ export default function LayoutWrapper({
   }
   
   return (
-    <div className="w-full overflow-x-hidden">
+    <>
       {/* Smooth Scroll */}
       <LenisScroll />
       
@@ -37,7 +37,7 @@ export default function LayoutWrapper({
       {getNavbar()}
       
       {/* Main Content */}
-      <main className="min-h-screen w-full">
+      <main className="min-h-screen w-full bg-dark-primary overflow-x-hidden">
         {children}
       </main>
       
@@ -46,6 +46,6 @@ export default function LayoutWrapper({
       
       {/* AI Learning Mentor - Hide on auth pages, dashboard, and admin pages */}
       {!isAuthPage && !isDashboardPage && !isAdminPage && <ChatBot />}
-    </div>
+    </>
   )
 }

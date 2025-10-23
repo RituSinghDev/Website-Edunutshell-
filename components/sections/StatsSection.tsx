@@ -100,24 +100,30 @@ const StatsSection = () => {
         >
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={20}
+            spaceBetween={24}
             slidesPerView={1}
+            slidesPerGroup={1}
+            watchSlidesProgress={true}
             autoplay={{
-              delay: 2000,
+              delay: 2500,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
             loop={true}
             breakpoints={{
               640: {
                 slidesPerView: 2,
+                slidesPerGroup: 2,
                 spaceBetween: 20,
               },
               768: {
                 slidesPerView: 3,
+                slidesPerGroup: 3,
                 spaceBetween: 24,
               },
               1024: {
                 slidesPerView: 4,
+                slidesPerGroup: 4,
                 spaceBetween: 24,
               },
             }}

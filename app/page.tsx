@@ -7,21 +7,38 @@ import PopularCoursesSection from '@/components/sections/PopularCoursesSection'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import PartnersSection from '@/components/sections/PartnersSection'
 import StudentInquiryForm from '@/components/sections/StudentInquiryForm'
-import LenisScroll from '@/components/LenisScroll'
+import SectionTransition from '@/components/SectionTransition'
 
 export default function Home() {
   return (
-    <>
-      <LenisScroll />
-      <div className="pt-16 w-full overflow-x-hidden">
+    <div className="pt-16 w-full bg-dark-primary" style={{ overflow: 'hidden' }}>
+      <SectionTransition id="hero">
         <HeroSection />
+      </SectionTransition>
+      
+      <SectionTransition id="stats">
         <StatsSection />
+      </SectionTransition>
+      
+      <SectionTransition id="popular-courses">
         <PopularCoursesSection />
+      </SectionTransition>
+      
+      <SectionTransition id="partners">
         <PartnersSection />
+      </SectionTransition>
+      
+      <SectionTransition id="features">
         <FeaturesSection />
+      </SectionTransition>
+      
+      <SectionTransition id="testimonials">
         <TestimonialsSection />
+      </SectionTransition>
+      
+      <SectionTransition id="inquiry-form">
         <StudentInquiryForm />
-      </div>
-    </>
+      </SectionTransition>
+    </div>
   )
 }

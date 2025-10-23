@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
 export default function SchemaCard() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     let time = 0;
     const waveData = Array.from({ length: 8 }).map(() => ({
       value: Math.random() * 0.5 + 0.1,
@@ -14,6 +16,7 @@ export default function SchemaCard() {
     }));
 
     function resizeCanvas() {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
@@ -27,6 +30,7 @@ export default function SchemaCard() {
     }
 
     function draw() {
+      if (!canvas || !ctx) return;
       ctx.fillStyle = 'black';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -93,7 +97,7 @@ export default function SchemaCard() {
               <div className="flex justify-between items-center">
                 <a href="#" className="text-indigo-400 hover:text-indigo-300 transition flex items-center text-xs font-medium glass px-3 py-1.5 rounded-lg border border-indigo-400/30">
                   Manage
-                  <svg className="w-3 h-3 ml-1" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  <svg className="w-3 h-3 ml-1" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </a>
                 <span className="text-white/50 text-xs glass px-2 py-1 rounded-full border border-white/10">Live</span>
               </div>

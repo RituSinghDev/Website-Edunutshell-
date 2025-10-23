@@ -84,6 +84,8 @@ const TestimonialsSection = () => {
             modules={[Autoplay, Pagination]}
             spaceBetween={30}
             slidesPerView={1}
+            slidesPerGroup={1}
+            watchSlidesProgress={true}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
@@ -96,12 +98,15 @@ const TestimonialsSection = () => {
             breakpoints={{
               640: {
                 slidesPerView: 1,
+                slidesPerGroup: 1,
               },
               768: {
                 slidesPerView: 2,
+                slidesPerGroup: 2,
               },
               1024: {
                 slidesPerView: 3,
+                slidesPerGroup: 3,
               },
             }}
             className="testimonials-swiper pb-10"
@@ -164,8 +169,15 @@ const TestimonialsSection = () => {
       </div>
 
       <style jsx global>{`
+        .testimonials-swiper {
+          overflow: hidden !important;
+        }
+        .testimonials-swiper .swiper-wrapper {
+          display: flex !important;
+        }
         .testimonials-swiper .swiper-slide {
           height: auto !important;
+          flex-shrink: 0 !important;
         }
         .testimonials-swiper .swiper-pagination {
           bottom: 0 !important;
@@ -179,6 +191,16 @@ const TestimonialsSection = () => {
         }
         .testimonials-swiper .swiper-pagination-bullet-active {
           transform: scale(1.2) !important;
+        }
+        @media (min-width: 1024px) {
+          .testimonials-swiper .swiper-slide {
+            width: calc((100% - 60px) / 3) !important;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .testimonials-swiper .swiper-slide {
+            width: calc((100% - 30px) / 2) !important;
+          }
         }
       `}</style>
     </section>

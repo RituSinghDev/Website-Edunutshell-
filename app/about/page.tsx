@@ -61,8 +61,21 @@ const AboutPage = () => {
         // Split text into lines
         const splitText = new SplitType(heroTextRef.current, { types: 'lines' })
 
-        // Wrap lines for animation
-        gsap.set(splitText.lines, { overflow: 'hidden' })
+        // Ensure descenders are visible - set overflow visible on both lines and parent wrappers
+        if (splitText.lines) {
+          gsap.set(splitText.lines, {
+            overflow: 'visible',
+            paddingBottom: '16px',
+            lineHeight: '1.1'
+          })
+
+          // Also set overflow visible on parent line wrappers
+          splitText.lines.forEach((line) => {
+            if (line.parentElement) {
+              gsap.set(line.parentElement, { overflow: 'visible' })
+            }
+          })
+        }
 
         // Background zoom
         gsap.fromTo(heroBgRef.current,
@@ -334,11 +347,11 @@ const AboutPage = () => {
         />
         <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 ref={heroTextRef} className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
-              Your Breakthrough <span className="gradient-text">Begins Now</span>
+            <h1 ref={heroTextRef} className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white overflow-visible">
+              Your breakthrough <span className="gradient-text">begins now</span>
             </h1>
             <p ref={heroSubtextRef} className="text-xl text-text-secondary leading-relaxed">
-              At Edunutshell, we don’t just offer courses We build career-changing experiences. Our programs are built for students, freshers, and working professionals who are ready to bridge the gap between education and real opportunity. Whether you're preparing for your dream job or exploring a brand-new domain, Edunutshell equips you with the skills, guidance, and industry exposure to stand out and succeed. We believe transformation happens when learning meets purpose, and every learner deserves a fair shot at proving their potential regardless of background or degree.
+              At Edunutshell, we don’t just offer courses. We build career-changing experiences. Our programs are built for students, freshers, and working professionals who are ready to bridge the gap between education and real opportunity. Whether you're preparing for your dream job or exploring a brand-new domain, Edunutshell equips you with the skills, guidance, and industry exposure to stand out and succeed. We believe transformation happens when learning meets purpose, and every learner deserves a fair shot at proving their potential regardless of background or degree.
             </p>
           </div>
         </div>
@@ -358,8 +371,8 @@ const AboutPage = () => {
               </div>
               <p className="animate-item text-text-secondary text-lg leading-relaxed">
                 To empower the next generation of professionals with
- the right skills, mentorship, and experience to excel in
- real-world careers.
+                the right skills, mentorship, and experience to excel in
+                real-world careers.
               </p>
             </div>
 
@@ -372,9 +385,9 @@ const AboutPage = () => {
                 <h2 className="text-2xl font-bold text-white">Our Vision</h2>
               </div>
               <p className="animate-item text-text-secondary text-lg leading-relaxed">
-                 To be India’s most impactful EdTech platform by transforming fresh talent into
- industry-ready professionals — through accessible training, practical internships, and
- lifelong career support.
+                To be India’s most impactful EdTech platform by transforming fresh talent into
+                industry-ready professionals — through accessible training, practical internships, and
+                lifelong career support.
 
               </p>
             </div>
